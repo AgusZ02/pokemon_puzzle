@@ -44,18 +44,20 @@ class Pokemon {
 
 
 document.addEventListener('keydown', function (event) {
-  Pokemon.keys[event.key] = true;
-
-});
-
-
-document.addEventListener('keyup', function (event) {
   console.log(event);
   Pokemon.keys[event.key] = true;
+
 });
+document.addEventListener('keyup', function (event) {
+  console.log(event);
+  Pokemon.keys["ArrowRight"] = Pokemon.keys["ArrowLeft"] = Pokemon.keys["ArrowDown"] = Pokemon.keys["ArrowUp"] = false;
+
+});
+
 
 function moveActivePokemon() {
   const step = 5;
+  
   if (Pokemon.activePokemon) {
       Pokemon.activePokemon.move(step);
   }
