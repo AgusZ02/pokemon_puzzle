@@ -28,7 +28,7 @@ class Pokemon {
     this.element.addEventListener('click', () => {
       Pokemon.activePokemon = this;
       console.log("activo: " + Pokemon.activePokemon.name);
-  });
+    });
   }
 
   move(step) {
@@ -44,35 +44,14 @@ class Pokemon {
 
 
 document.addEventListener('keydown', function (event) {
-  this.keys[0] = false;
-  this.keys[1] = true;
-  this.keys[2] = false;
-  this.keys[3] = false;
+  Pokemon.keys[event.key] = true;
+
 });
 
-
-document.addEventListener('keyleft', function (event) {
-  this.keys[0] = false;
-  this.keys[1] = false;
-  this.keys[2] = true;
-  this.keys[3] = false;
-});
-
-document.addEventListener('keyright', function (event) {
-  this.keys[0] = false;
-  this.keys[1] = false;
-  this.keys[2] = false;
-  this.keys[3] = true;
-});
 
 document.addEventListener('keyup', function (event) {
   console.log(event);
-  this.keys[0] = true;
-  this.keys[1] = false;
-  this.keys[2] = false;
-  this.keys[3] = false;
-
-
+  Pokemon.keys[event.key] = true;
 });
 
 function moveActivePokemon() {
